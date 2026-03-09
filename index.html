@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- METADADOS - Informações importantes para o navegador -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuro Sustentável</title>
+    
+    <!-- CONEXÃO COM CSS - Liga o HTML ao arquivo de estilos -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- FONTE GOOGLE - Texto mais bonito e moderno -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- CABEÇALHO / MENU - Fica fixo no topo -->
+    <header>
+        <nav class="menu">
+            <!-- Logo do site -->
+            <div class="logo">
+                <span class="logo-verde">Futuro</span>
+                <span class="logo-azul">Sustentável</span>
+            </div>
+            
+            <!-- Botão do menu mobile (aparece só no celular) -->
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <!-- Lista de links do menu -->
+            <ul class="menu-lista">
+                <li><a href="#introducao">Início</a></li>
+                <li><a href="#porque">Por quê?</a></li>
+                <li><a href="#empresas">Empresas</a></li>
+                <li><a href="#definicao">O que é</a></li>
+                <li><a href="#pilares">Pilares</a></li>
+                <li><a href="#cidades">Cidades</a></li>
+                <li><a href="#acoes">Ações</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL DO SITE -->
+    <main>
+        <!-- SEÇÃO 1: CAPA (Slide 1) -->
+        <section id="inicio" class="hero">
+            <div class="hero-conteudo">
+                <h1>FUTURO SUSTENTÁVEL</h1>
+                <p class="subtitulo">Equilíbrio entre produção e meio ambiente</p>
+                <!-- Botão interativo que muda de cor com JavaScript -->
+                <button class="btn-interativo" id="botaoExplorar">
+                    Explorar 🌱
+                </button>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 2: INTRODUÇÃO (Slide 2) -->
+        <section id="introducao" class="secao">
+            <div class="container">
+                <h2>INTRODUÇÃO</h2>
+                <div class="card-conteudo">
+                    <p>O futuro sustentável é mais do que uma aspiração, é uma necessidade urgente para conseguirmos um planeta equilibrado e habitável para as próximas gerações. Com o avanço das mudanças climáticas e o esgotamento de recursos naturais, a busca por soluções inovadoras e práticas sustentáveis se tornou essencial.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 3: POR QUE É PAUTA ATUAL? (Slide 3) -->
+        <section id="porque" class="secao">
+            <div class="container">
+                <h2>POR QUE A SUSTENTABILIDADE TEM SIDO UMA PAUTA TÃO ATUAL?</h2>
+                <div class="card-conteudo">
+                    <p>A sustentabilidade tem ganhado destaque global devido à crescente conscientização sobre os impactos das mudanças climáticas e ao esgotamento dos recursos naturais. Eventos extremos, como secas, enchentes e incêndios florestais, evidenciam a urgência de adotar práticas mais responsáveis.</p>
+                    <!-- Card interativo que muda de cor com clique -->
+                    <div class="card-interativo" id="cardClimatico">
+                        <h3>Eventos Climáticos Extremos</h3>
+                        <p>Clique aqui para ver um dado importante</p>
+                        <p class="dado-oculto" id="dadoImportante">🌡️ 2023 foi o ano mais quente da história</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 4: SUSTENTABILIDADE NAS EMPRESAS (Slide 4) -->
+        <section id="empresas" class="secao">
+            <div class="container">
+                <h2>O QUE É SUSTENTABILIDADE PARA AS EMPRESAS E POR QUE É FUNDAMENTAL</h2>
+                <div class="card-conteudo">
+                    <p>Para as empresas, a sustentabilidade significa adotar práticas que equilibrem o crescimento econômico com a responsabilidade social e ambiental.</p>
+                    
+                    <!-- Lista de tópicos em formato de cards -->
+                    <div class="lista-beneficios">
+                        <div class="beneficio-item">
+                            <span class="icone">🌍</span>
+                            <h4>Atrai consumidores conscientes</h4>
+                            <p>Pessoas preferem marcas que se preocupam com o meio ambiente</p>
+                        </div>
+                        <div class="beneficio-item">
+                            <span class="icone">💰</span>
+                            <h4>Diminui custos operacionais</h4>
+                            <p>Eficiência energética e economia circular reduzem gastos</p>
+                        </div>
+                        <div class="beneficio-item">
+                            <span class="icone">⭐</span>
+                            <h4>Fortalece a imagem corporativa</h4>
+                            <p>Empresas vistas como inovadoras e responsáveis</p>
+                        </div>
+                        <div class="beneficio-item">
+                            <span class="icone">📋</span>
+                            <h4>Cumpre regulamentações</h4>
+                            <p>Governos exigem práticas sustentáveis</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 5: O QUE É FUTURO SUSTENTÁVEL (Slide 5) -->
+        <section id="definicao" class="secao">
+            <div class="container">
+                <h2>O que é um futuro sustentável?</h2>
+                <div class="card-conteudo destaque">
+                    <p>Um futuro sustentável é aquele em que o desenvolvimento econômico, social e ambiental ocorre de forma equilibrada, garantindo que as necessidades atuais não comprometam as gerações futuras.</p>
+                    <p class="citacao">A transição para um futuro sustentável exige mudanças em energia, transporte, construção e educação. Essas mudanças preservam recursos naturais e criam oportunidades para um crescimento econômico mais inclusivo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 6: PILARES (Slide 6) -->
+        <section id="pilares" class="secao">
+            <div class="container">
+                <h2>Quais são os pilares de um futuro sustentável?</h2>
+                <div class="pilares-grid">
+                    <div class="pilar-card">
+                        <h3>🌱 Gestão responsável</h3>
+                        <p>Dos recursos naturais</p>
+                    </div>
+                    <div class="pilar-card">
+                        <h3>💡 Inovação</h3>
+                        <p>Tecnologia sustentável</p>
+                    </div>
+                    <div class="pilar-card">
+                        <h3>🤝 Responsabilidade social</h3>
+                        <p>Inclusão e justiça</p>
+                    </div>
+                    <div class="pilar-card">
+                        <h3>🔄 Economia circular</h3>
+                        <p>Consumo consciente</p>
+                    </div>
+                    <div class="pilar-card">
+                        <h3>📚 Educação</h3>
+                        <p>Conscientização ambiental</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 7: CIDADES DO FUTURO (Slide 7) -->
+        <section id="cidades" class="secao">
+            <div class="container">
+                <h2>CIDADES DO FUTURO SUSTENTÁVEL</h2>
+                <div class="cidades-conteudo">
+                    <p>As cidades do futuro sustentável serão planejadas para integrar mobilidade, energia e gestão de recursos de forma inteligente.</p>
+                    
+                    <!-- Carrossel simples com JavaScript -->
+                    <div class="carrossel-container">
+                        <div class="carrossel-item ativo">
+                            <h4>🚆 Transporte sustentável</h4>
+                            <p>Veículos elétricos, bicicletas compartilhadas e transporte público eficiente</p>
+                        </div>
+                        <div class="carrossel-item">
+                            <h4>☀️ Energia renovável</h4>
+                            <p>Fontes limpas como solar e eólica</p>
+                        </div>
+                        <div class="carrossel-item">
+                            <h4>♻️ Gestão de resíduos</h4>
+                            <p>Reciclagem e compostagem</p>
+                        </div>
+                        
+                        <!-- Botões de controle do carrossel -->
+                        <div class="carrossel-controles">
+                            <button class="carrossel-btn" id="carrosselPrev">←</button>
+                            <button class="carrossel-btn" id="carrosselNext">→</button>
+                        </div>
+                        
+                        <!-- Indicadores (bolinhas) -->
+                        <div class="carrossel-indicadores">
+                            <span class="indicador ativo"></span>
+                            <span class="indicador"></span>
+                            <span class="indicador"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 8: AÇÕES PRÁTICAS (Slide 8) -->
+        <section id="acoes" class="secao">
+            <div class="container">
+                <h2>O QUE PODEMOS FAZER?</h2>
+                <div class="acoes-lista">
+                    <div class="acao-item">
+                        <input type="checkbox" id="acao1" class="acao-checkbox">
+                        <label for="acao1">💡 Reduzir consumo de energia</label>
+                    </div>
+                    <div class="acao-item">
+                        <input type="checkbox" id="acao2" class="acao-checkbox">
+                        <label for="acao2">💧 Economizar água</label>
+                    </div>
+                    <div class="acao-item">
+                        <input type="checkbox" id="acao3" class="acao-checkbox">
+                        <label for="acao3">♻️ Reciclar e compostar</label>
+                    </div>
+                    <div class="acao-item">
+                        <input type="checkbox" id="acao4" class="acao-checkbox">
+                        <label for="acao4">🚲 Usar transporte sustentável</label>
+                    </div>
+                    <div class="acao-item">
+                        <input type="checkbox" id="acao5" class="acao-checkbox">
+                        <label for="acao5">🗳️ Apoiar políticas públicas</label>
+                    </div>
+                </div>
+                
+                <!-- Botão que mostra contador de ações -->
+                <button class="btn-contador" id="contadorAcoes">
+                    Ver meu progresso
+                </button>
+                <p class="mensagem-contador" id="mensagemContador"></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>🌍 Futuro Sustentável - Trabalho escolar por Ana Carolina</p>
+        <p>2º ano Ensino Médio</p>
+    </footer>
+
+    <!-- CONEXÃO COM JAVASCRIPT -->
+    <script src="script.js"></script>
+</body>
+</html>

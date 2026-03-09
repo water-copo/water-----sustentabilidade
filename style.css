@@ -1,0 +1,427 @@
+/* style.css - Aqui é onde damos cor e forma ao site */
+
+/* RESET BÁSICO - Remove as configurações padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ESTILOS GLOBAIS - Configurações para todo o site */
+body {
+    font-family: 'Poppins', sans-serif;  /* Fonte moderna e bonita */
+    line-height: 1.6;  /* Espaçamento entre linhas */
+    color: #333;  /* Cor do texto principal (cinza escuro) */
+    background-color: #f5f9ff;  /* Azul bem clarinho de fundo */
+}
+
+/* CORES PRINCIPAIS - Verde e azul (suas cores favoritas!) */
+:root {
+    --verde-principal: #2ecc71;  /* Verde vibrante */
+    --verde-escuro: #27ae60;      /* Verde mais escuro */
+    --azul-principal: #3498db;    /* Azul médio */
+    --azul-escuro: #2980b9;       /* Azul mais escuro */
+    --azul-claro: #e8f4fd;         /* Azul bem clarinho para fundos */
+}
+
+/* ===== CABEÇALHO E MENU ===== */
+header {
+    background: linear-gradient(135deg, var(--verde-principal), var(--azul-principal));
+    /* Gradiente: verde para azul (combinação perfeita!) */
+    color: white;
+    position: fixed;  /* Menu fica fixo no topo */
+    width: 100%;
+    top: 0;
+    z-index: 1000;  /* Fica acima de outros elementos */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo com duas cores */
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo-verde {
+    color: #ffffff;  /* Branco */
+}
+
+.logo-azul {
+    color: #f1c40f;  /* Amarelo dourado para destaque */
+}
+
+/* Lista do menu */
+.menu-lista {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.menu-lista a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;  /* Efeito suave ao passar o mouse */
+    font-size: 1rem;
+}
+
+.menu-lista a:hover {
+    color: #f1c40f;  /* Amarelo ao passar o mouse */
+    border-bottom: 2px solid #f1c40f;
+}
+
+/* Botão do menu mobile (invisível em telas grandes) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 2px 0;
+    transition: 0.3s;
+}
+
+/* ===== SEÇÃO HERO (PRIMEIRA PÁGINA) ===== */
+.hero {
+    height: 100vh;  /* Ocupa a tela inteira */
+    background: linear-gradient(135deg, rgba(46, 204, 113, 0.9), rgba(52, 152, 219, 0.9)),
+                url('data:image/svg+xml,<svg ...>'); /* Fundo com padrão */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+    margin-top: 60px;  /* Espaço para o menu fixo */
+}
+
+.hero-conteudo h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.subtitulo {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+/* Botão interativo */
+.btn-interativo {
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    background: white;
+    color: var(--verde-escuro);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-interativo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.btn-interativo:active {
+    transform: translateY(-1px);
+}
+
+/* ===== SEÇÕES GERAIS ===== */
+.secao {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    scroll-margin-top: 70px;  /* Ajuste para o menu fixo */
+}
+
+.secao:nth-child(even) {
+    background-color: var(--azul-claro);  /* Fundo azul claro em seções pares */
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 2.2rem;
+    color: var(--verde-escuro);
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+/* Linha decorativa abaixo dos títulos */
+h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--verde-principal), var(--azul-principal));
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+.card-conteudo {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    border-left: 5px solid var(--verde-principal);
+}
+
+/* ===== SEÇÃO EMPRESAS (BENEFÍCIOS) ===== */
+.lista-beneficios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.beneficio-item {
+    background: var(--azul-claro);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.beneficio-item:hover {
+    transform: translateY(-5px);
+}
+
+.icone {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+/* ===== PILARES ===== */
+.pilares-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.pilar-card {
+    background: white;
+    padding: 2rem 1rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-bottom: 4px solid var(--azul-principal);
+    transition: all 0.3s;
+}
+
+.pilar-card:hover {
+    transform: scale(1.05);
+    border-bottom-color: var(--verde-principal);
+}
+
+/* ===== CARROSSEL ===== */
+.carrossel-container {
+    position: relative;
+    margin-top: 2rem;
+    min-height: 200px;
+}
+
+.carrossel-item {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    animation: fade 0.5s;
+}
+
+.carrossel-item.ativo {
+    display: block;
+}
+
+@keyframes fade {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+.carrossel-controles {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.carrossel-btn {
+    background: var(--azul-principal);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background 0.3s;
+}
+
+.carrossel-btn:hover {
+    background: var(--azul-escuro);
+}
+
+.carrossel-indicadores {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.indicador {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+}
+
+.indicador.ativo {
+    background: var(--verde-principal);
+}
+
+/* ===== AÇÕES PRÁTICAS ===== */
+.acoes-lista {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.acao-item {
+    margin: 1rem 0;
+    padding: 0.5rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+}
+
+.acao-checkbox {
+    margin-right: 1rem;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.acao-checkbox:checked + label {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.btn-contador {
+    background: var(--verde-principal);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.3s;
+    display: block;
+    margin: 0 auto;
+}
+
+.btn-contador:hover {
+    background: var(--verde-escuro);
+}
+
+.mensagem-contador {
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: 600;
+    color: var(--azul-escuro);
+}
+
+/* ===== RODAPÉ ===== */
+footer {
+    background: linear-gradient(135deg, var(--verde-escuro), var(--azul-escuro));
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+/* ===== RESPONSIVIDADE - Adaptação para mobile ===== */
+@media (max-width: 768px) {
+    /* Ajustes no menu para celular */
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .menu-lista {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: linear-gradient(135deg, var(--verde-principal), var(--azul-principal));
+        padding: 1rem 0;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .menu-lista.ativo {
+        display: flex;
+    }
+    
+    /* Títulos menores no celular */
+    .hero-conteudo h1 {
+        font-size: 2.5rem;
+    }
+    
+    .subtitulo {
+        font-size: 1.2rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    /* Ajustes nos cards */
+    .pilares-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .lista-beneficios {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Espaçamento */
+    .secao {
+        padding: 60px 15px;
+    }
+}
+
+/* Para telas muito pequenas (celulares pequenos) */
+@media (max-width: 480px) {
+    .hero-conteudo h1 {
+        font-size: 2rem;
+    }
+    
+    .card-conteudo {
+        padding: 1.5rem;
+    }
+}
