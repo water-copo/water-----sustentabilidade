@@ -1,39 +1,41 @@
-/* style.css - Aqui é onde damos cor e forma ao site */
+/* style.css - Arquivo de estilos do site Futuro Sustentável */
 
-/* RESET BÁSICO - Remove as configurações padrão do navegador */
+/* Reset básico - remove margens e paddings padrão do navegador */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ESTILOS GLOBAIS - Configurações para todo o site */
-body {
-    font-family: 'Poppins', sans-serif;  /* Fonte moderna e bonita */
-    line-height: 1.6;  /* Espaçamento entre linhas */
-    color: #333;  /* Cor do texto principal (cinza escuro) */
-    background-color: #f5f9ff;  /* Azul bem clarinho de fundo */
-}
-
-/* CORES PRINCIPAIS - Verde e azul (suas cores favoritas!) */
+/* Variáveis de cores (facilita se quiser mudar depois) */
 :root {
-    --verde-principal: #2ecc71;  /* Verde vibrante */
-    --verde-escuro: #27ae60;      /* Verde mais escuro */
-    --azul-principal: #3498db;    /* Azul médio */
-    --azul-escuro: #2980b9;       /* Azul mais escuro */
-    --azul-claro: #e8f4fd;         /* Azul bem clarinho para fundos */
+    --verde-principal: #2ecc71;      /* Verde vibrante */
+    --verde-escuro: #27ae60;          /* Verde mais escuro */
+    --azul-principal: #3498db;        /* Azul médio */
+    --azul-escuro: #2980b9;           /* Azul mais escuro */
+    --branco: #ffffff;                 /* Branco */
+    --cinza-claro: #f4f4f4;            /* Fundo claro */
+    --cinza-escuro: #333333;           /* Texto escuro */
+    --sombra: rgba(0,0,0,0.1);         /* Cor da sombra */
 }
 
-/* ===== CABEÇALHO E MENU ===== */
+/* Estilos gerais do corpo da página */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--cinza-escuro);
+    background-color: var(--branco);
+}
+
+/* ===== MENU DE NAVEGAÇÃO ===== */
 header {
     background: linear-gradient(135deg, var(--verde-principal), var(--azul-principal));
-    /* Gradiente: verde para azul (combinação perfeita!) */
-    color: white;
-    position: fixed;  /* Menu fica fixo no topo */
+    color: var(--branco);
+    position: fixed;        /* Menu fixo no topo */
     width: 100%;
     top: 0;
-    z-index: 1000;  /* Fica acima de outros elementos */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;          /* Fica acima de outros elementos */
+    box-shadow: 0 2px 10px var(--sombra);
 }
 
 .menu {
@@ -45,383 +47,268 @@ header {
     margin: 0 auto;
 }
 
-/* Logo com duas cores */
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
+.logo h1 {
+    font-size: 1.3rem;
 }
 
-.logo-verde {
-    color: #ffffff;  /* Branco */
-}
-
-.logo-azul {
-    color: #f1c40f;  /* Amarelo dourado para destaque */
-}
-
-/* Lista do menu */
 .menu-lista {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .menu-lista a {
-    color: white;
+    color: var(--branco);
     text-decoration: none;
     font-weight: 500;
-    transition: all 0.3s;  /* Efeito suave ao passar o mouse */
-    font-size: 1rem;
+    transition: all 0.3s;  /* Transição suave */
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px;
 }
 
 .menu-lista a:hover {
-    color: #f1c40f;  /* Amarelo ao passar o mouse */
-    border-bottom: 2px solid #f1c40f;
+    background-color: rgba(255,255,255,0.2);  /* Efeito ao passar o mouse */
+    transform: scale(1.05);
 }
 
-/* Botão do menu mobile (invisível em telas grandes) */
+/* Botão do menu mobile - escondido em telas grandes */
 .menu-toggle {
     display: none;
-    flex-direction: column;
-    background: transparent;
+    background: none;
     border: none;
+    color: var(--branco);
+    font-size: 2rem;
     cursor: pointer;
 }
 
-.menu-toggle span {
-    width: 25px;
-    height: 3px;
-    background: white;
-    margin: 2px 0;
-    transition: 0.3s;
+/* ===== SEÇÕES DE CONTEÚDO ===== */
+/* Ajuste para o menu fixo não cobrir o conteúdo */
+section {
+    scroll-margin-top: 80px;
 }
 
-/* ===== SEÇÃO HERO (PRIMEIRA PÁGINA) ===== */
-.hero {
-    height: 100vh;  /* Ocupa a tela inteira */
-    background: linear-gradient(135deg, rgba(46, 204, 113, 0.9), rgba(52, 152, 219, 0.9)),
-                url('data:image/svg+xml,<svg ...>'); /* Fundo com padrão */
+/* Capa - primeira seção */
+.capa {
+    height: 100vh;          /* Altura total da tela */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232ecc71"/><circle cx="20" cy="30" r="10" fill="%233498db"/><circle cx="80" cy="70" r="15" fill="%23f1c40f"/></svg>');
+    background-size: cover;
+    background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
-    padding: 0 20px;
-    margin-top: 60px;  /* Espaço para o menu fixo */
+    color: var(--branco);
+    padding: 0 1rem;
 }
 
-.hero-conteudo h1 {
-    font-size: 3.5rem;
+.capa-conteudo h1 {
+    font-size: 3rem;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .subtitulo {
     font-size: 1.5rem;
     margin-bottom: 2rem;
-    opacity: 0.95;
+    opacity: 0.9;
 }
 
-/* Botão interativo */
-.btn-interativo {
-    padding: 1rem 2.5rem;
-    font-size: 1.2rem;
-    background: white;
-    color: var(--verde-escuro);
+/* Botão de destaque na capa */
+.botao-destaque {
+    background-color: var(--verde-principal);
+    color: var(--branco);
     border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
     border-radius: 50px;
     cursor: pointer;
-    font-weight: 600;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
 }
 
-.btn-interativo:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+.botao-destaque:hover {
+    background-color: var(--verde-escuro);
+    transform: translateY(-3px);  /* Sobe um pouco */
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.6);
 }
 
-.btn-interativo:active {
-    transform: translateY(-1px);
-}
-
-/* ===== SEÇÕES GERAIS ===== */
-.secao {
-    padding: 80px 20px;
+/* Seções de conteúdo gerais */
+.conteudo {
     max-width: 1200px;
     margin: 0 auto;
-    scroll-margin-top: 70px;  /* Ajuste para o menu fixo */
+    padding: 4rem 5%;
 }
 
-.secao:nth-child(even) {
-    background-color: var(--azul-claro);  /* Fundo azul claro em seções pares */
-}
-
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-h2 {
-    font-size: 2.2rem;
+.conteudo h2 {
     color: var(--verde-escuro);
-    margin-bottom: 2rem;
-    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid var(--azul-principal);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.conteudo p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+/* Lista de benefícios (seção empresas) */
+.lista-beneficios, .lista-cidades {
+    list-style: none;
+    margin: 2rem 0;
+}
+
+.lista-beneficios li, .lista-cidades li {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
     position: relative;
+    line-height: 1.4;
 }
 
-/* Linha decorativa abaixo dos títulos */
-h2::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--verde-principal), var(--azul-principal));
-    margin: 1rem auto 0;
-    border-radius: 2px;
+.lista-beneficios li::before {
+    content: "✅";
+    position: absolute;
+    left: 0;
+    color: var(--verde-principal);
 }
 
-.card-conteudo {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-    border-left: 5px solid var(--verde-principal);
+.lista-cidades li::before {
+    content: "🌍";
+    position: absolute;
+    left: 0;
 }
 
-/* ===== SEÇÃO EMPRESAS (BENEFÍCIOS) ===== */
-.lista-beneficios {
+/* Cards dos pilares */
+.cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.card {
+    background: linear-gradient(135deg, var(--verde-principal), var(--azul-principal));
+    color: var(--branco);
+    padding: 2rem 1rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px var(--sombra);
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);  /* Efeito de levantar */
+    box-shadow: 0 15px 30px rgba(52, 152, 219, 0.3);
+}
+
+.card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.card p {
+    margin-bottom: 0;
+    opacity: 0.9;
+}
+
+/* Grid de ações (última seção) */
+.acoes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
 }
 
-.beneficio-item {
-    background: var(--azul-claro);
-    padding: 1.5rem;
+.acao-item {
+    background-color: var(--cinza-claro);
+    padding: 2rem 1rem;
     border-radius: 10px;
     text-align: center;
-    transition: transform 0.3s;
+    transition: all 0.3s;
+    border: 2px solid transparent;
 }
 
-.beneficio-item:hover {
-    transform: translateY(-5px);
+.acao-item:hover {
+    border-color: var(--verde-principal);
+    transform: scale(1.02);
+    background-color: var(--branco);
+    box-shadow: 0 5px 15px var(--sombra);
 }
 
 .icone {
-    font-size: 2.5rem;
+    font-size: 3rem;
     display: block;
     margin-bottom: 1rem;
 }
 
-/* ===== PILARES ===== */
-.pilares-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-}
-
-.pilar-card {
-    background: white;
-    padding: 2rem 1rem;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-bottom: 4px solid var(--azul-principal);
-    transition: all 0.3s;
-}
-
-.pilar-card:hover {
-    transform: scale(1.05);
-    border-bottom-color: var(--verde-principal);
-}
-
-/* ===== CARROSSEL ===== */
-.carrossel-container {
-    position: relative;
-    margin-top: 2rem;
-    min-height: 200px;
-}
-
-.carrossel-item {
-    display: none;
-    text-align: center;
-    padding: 2rem;
-    background: white;
-    border-radius: 10px;
-    animation: fade 0.5s;
-}
-
-.carrossel-item.ativo {
-    display: block;
-}
-
-@keyframes fade {
-    from { opacity: 0.4; }
-    to { opacity: 1; }
-}
-
-.carrossel-controles {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin: 1rem 0;
-}
-
-.carrossel-btn {
-    background: var(--azul-principal);
-    color: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: background 0.3s;
-}
-
-.carrossel-btn:hover {
-    background: var(--azul-escuro);
-}
-
-.carrossel-indicadores {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.indicador {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #ccc;
-    cursor: pointer;
-}
-
-.indicador.ativo {
-    background: var(--verde-principal);
-}
-
-/* ===== AÇÕES PRÁTICAS ===== */
-.acoes-lista {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    margin-bottom: 1.5rem;
-}
-
-.acao-item {
-    margin: 1rem 0;
-    padding: 0.5rem;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    align-items: center;
-}
-
-.acao-checkbox {
-    margin-right: 1rem;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-}
-
-.acao-checkbox:checked + label {
-    text-decoration: line-through;
-    color: #999;
-}
-
-.btn-contador {
-    background: var(--verde-principal);
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    transition: background 0.3s;
-    display: block;
-    margin: 0 auto;
-}
-
-.btn-contador:hover {
-    background: var(--verde-escuro);
-}
-
-.mensagem-contador {
-    text-align: center;
-    margin-top: 1rem;
-    font-weight: 600;
-    color: var(--azul-escuro);
-}
-
-/* ===== RODAPÉ ===== */
+/* Rodapé */
 footer {
     background: linear-gradient(135deg, var(--verde-escuro), var(--azul-escuro));
-    color: white;
+    color: var(--branco);
     text-align: center;
     padding: 2rem;
     margin-top: 2rem;
 }
 
-/* ===== RESPONSIVIDADE - Adaptação para mobile ===== */
+/* ===== DESIGN RESPONSIVO ===== */
+/* Tablet */
 @media (max-width: 768px) {
-    /* Ajustes no menu para celular */
-    .menu-toggle {
-        display: flex;
-    }
-    
     .menu-lista {
-        display: none;
+        display: none;           /* Esconde o menu normal */
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        flex-direction: column;
         background: linear-gradient(135deg, var(--verde-principal), var(--azul-principal));
-        padding: 1rem 0;
-        text-align: center;
-        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        gap: 2rem;
+        box-shadow: 0 5px 10px var(--sombra);
     }
-    
-    .menu-lista.ativo {
-        display: flex;
+
+    .menu-lista.active {
+        display: flex;           /* Mostra quando a classe active está presente */
     }
-    
-    /* Títulos menores no celular */
-    .hero-conteudo h1 {
+
+    .menu-toggle {
+        display: block;          /* Mostra o botão do menu */
+    }
+
+    .capa-conteudo h1 {
         font-size: 2.5rem;
     }
-    
+
     .subtitulo {
         font-size: 1.2rem;
     }
-    
-    h2 {
-        font-size: 1.8rem;
-    }
-    
-    /* Ajustes nos cards */
-    .pilares-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .lista-beneficios {
-        grid-template-columns: 1fr;
-    }
-    
-    /* Espaçamento */
-    .secao {
-        padding: 60px 15px;
-    }
 }
 
-/* Para telas muito pequenas (celulares pequenos) */
+/* Celular */
 @media (max-width: 480px) {
-    .hero-conteudo h1 {
+    .capa-conteudo h1 {
         font-size: 2rem;
     }
-    
-    .card-conteudo {
-        padding: 1.5rem;
+
+    .conteudo h2 {
+        font-size: 1.5rem;
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr;  /* Cards empilhados */
+    }
+
+    .acoes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .menu {
+        padding: 0.8rem 5%;
+    }
+
+    .logo h1 {
+        font-size: 1.1rem;
     }
 }
