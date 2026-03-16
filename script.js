@@ -1,211 +1,149 @@
-// script.js - Aqui é onde a mágica acontece!
+// script.js - Interatividade do site Futuro Sustentável
 
-// ===== 1. MENU MOBILE =====
-// Faz o menu funcionar no celular (abre e fecha)
-
-// Seleciona os elementos do menu
-const menuToggle = document.querySelector('.menu-toggle');
-const menuLista = document.querySelector('.menu-lista');
-
-// Adiciona evento de clique no botão do menu
-menuToggle.addEventListener('click', () => {
-    menuLista.classList.toggle('ativo');
+// Aguarda o HTML carregar completamente antes de executar
+document.addEventListener('DOMContentLoaded', function() {
     
-    // Animação do ícone do menu (vira X quando aberto)
-    const spans = menuToggle.querySelectorAll('span');
-    spans.forEach(span => span.classList.toggle('ativo'));
-});
-
-// Fecha o menu quando clicar em um link (no celular)
-const links = document.querySelectorAll('.menu-lista a');
-links.forEach(link => {
-    link.addEventListener('click', () => {
-        menuLista.classList.remove('ativo');
-    });
-});
-
-// ===== 2. BOTÃO EXPLORAR (Slide 1) =====
-// Quando clicar, mostra uma mensagem e muda de cor
-
-const botaoExplorar = document.getElementById('botaoExplorar');
-let cliqueCount = 0;
-
-botaoExplorar.addEventListener('click', function() {
-    cliqueCount++;
+    // ===== MENU MOBILE =====
+    // Seleciona os elementos do menu
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menuLista = document.querySelector('.menu-lista');
     
-    // Muda a cor do botão
-    if (cliqueCount % 2 === 1) {
-        // Clique ímpar: fica azul
-        this.style.backgroundColor = '#3498db';
-        this.style.color = 'white';
-        this.textContent = 'Explorando... 🌍';
-    } else {
-        // Clique par: volta ao normal
-        this.style.backgroundColor = 'white';
-        this.style.color = '#27ae60';
-        this.textContent = 'Explorar 🌱';
-    }
-    
-    // Mostra uma mensagem
-    alert('🌱 Você deu o primeiro passo para um futuro sustentável!');
-});
-
-// ===== 3. CARD INTERATIVO (Slide 3) =====
-// Mostra/esconde um dado importante
-
-const cardClimatico = document.getElementById('cardClimatico');
-const dadoImportante = document.getElementById('dadoImportante');
-
-// Inicia escondendo o dado
-dadoImportante.style.display = 'none';
-
-cardClimatico.addEventListener('click', function() {
-    // Alterna a visibilidade do dado
-    if (dadoImportante.style.display === 'none') {
-        dadoImportante.style.display = 'block';
-        this.style.backgroundColor = '#e8f4fd'; // Azul clarinho
-    } else {
-        dadoImportante.style.display = 'none';
-        this.style.backgroundColor = 'white';
-    }
-});
-
-// ===== 4. CARROSSEL (Slide 7) =====
-// Faz o carrossel de cidades funcionar
-
-let slideAtual = 0;
-const slides = document.querySelectorAll('.carrossel-item');
-const indicadores = document.querySelectorAll('.indicador');
-const btnPrev = document.getElementById('carrosselPrev');
-const btnNext = document.getElementById('carrosselNext');
-
-// Função para mostrar o slide atual
-function mostrarSlide(index) {
-    // Remove a classe 'ativo' de todos os slides
-    slides.forEach(slide => {
-        slide.classList.remove('ativo');
-    });
-    
-    // Remove 'ativo' de todos os indicadores
-    indicadores.forEach(ind => {
-        ind.classList.remove('ativo');
-    });
-    
-    // Adiciona 'ativo' ao slide e indicador atual
-    slides[index].classList.add('ativo');
-    indicadores[index].classList.add('ativo');
-}
-
-// Botão próximo
-btnNext.addEventListener('click', () => {
-    slideAtual++;
-    if (slideAtual >= slides.length) {
-        slideAtual = 0; // Volta ao primeiro
-    }
-    mostrarSlide(slideAtual);
-});
-
-// Botão anterior
-btnPrev.addEventListener('click', () => {
-    slideAtual--;
-    if (slideAtual < 0) {
-        slideAtual = slides.length - 1; // Vai ao último
-    }
-    mostrarSlide(slideAtual);
-});
-
-// Clique nos indicadores (bolinhas)
-indicadores.forEach((indicador, index) => {
-    indicador.addEventListener('click', () => {
-        slideAtual = index;
-        mostrarSlide(slideAtual);
-    });
-});
-
-// ===== 5. CONTADOR DE AÇÕES (Slide 8) =====
-// Conta quantas ações sustentáveis você já faz
-
-const btnContador = document.getElementById('contadorAcoes');
-const mensagemContador = document.getElementById('mensagemContador');
-const checkboxes = document.querySelectorAll('.acao-checkbox');
-
-btnContador.addEventListener('click', () => {
-    // Conta quantos checkboxes estão marcados
-    let contador = 0;
-    checkboxes.forEach(checkbox => {
-        if (checkbox.checked) {
-            contador++;
-        }
-    });
-    
-    // Mensagem personalizada baseada no progresso
-    if (contador === 0) {
-        mensagemContador.textContent = '🌱 Que tal começar com uma ação hoje?';
-        mensagemContador.style.color = '#e74c3c'; // Vermelho
-    } else if (contador <= 2) {
-        mensagemContador.textContent = `👍 Você já faz ${contador} ação(ões)! Continue assim!`;
-        mensagemContador.style.color = '#f39c12'; // Laranja
-    } else if (contador <= 4) {
-        mensagemContador.textContent = `🌟 Ótimo! Você já pratica ${contador} ações sustentáveis!`;
-        mensagemContador.style.color = '#3498db'; // Azul
-    } else {
-        mensagemContador.textContent = `🏆 PARABÉNS! Você é um defensor do meio ambiente com ${contador} ações!`;
-        mensagemContador.style.color = '#27ae60'; // Verde
-    }
-});
-
-// ===== 6. SCROLL SUAVE =====
-// Faz a rolagem até as seções ser suave ao clicar no menu
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
+    // Verifica se o botão existe na página
+    if (menuToggle && menuLista) {
+        // Quando clicar no botão do menu
+        menuToggle.addEventListener('click', function() {
+            menuLista.classList.toggle('active');  // Adiciona ou remove a classe 'active'
+            
+            // Muda o texto do botão (opcional)
+            if (menuLista.classList.contains('active')) {
+                menuToggle.textContent = '✕';  // Ícone de fechar
+            } else {
+                menuToggle.textContent = '☰';  // Ícone de menu
+            }
+        });
         
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+        // Fecha o menu ao clicar em um link
+        const menuLinks = document.querySelectorAll('.menu-lista a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                menuLista.classList.remove('active');
+                menuToggle.textContent = '☰';
             });
-        }
-    });
-});
-
-// ===== 7. EFEITO DE MUDANÇA DE COR NO SCROLL =====
-// Muda a cor do menu quando rola a página
-
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-    const scrollPosition = window.scrollY;
-    
-    if (scrollPosition > 100) {
-        header.style.background = 'linear-gradient(135deg, #27ae60, #2980b9)';
-        header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.2)';
-    } else {
-        header.style.background = 'linear-gradient(135deg, var(--verde-principal), var(--azul-principal))';
-        header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+        });
     }
-});
-
-// ===== 8. ANIMAÇÃO DE ENTRADA =====
-// Elementos aparecem suavemente quando entram na tela
-
-// Observador de interseção (detecta quando elemento está visível)
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
+    
+    // ===== BOTÃO INTERATIVO DA CAPA =====
+    const botaoMensagem = document.getElementById('botaoMensagem');
+    
+    if (botaoMensagem) {
+        botaoMensagem.addEventListener('click', function() {
+            // Cria um elemento de mensagem
+            const mensagem = document.createElement('div');
+            mensagem.textContent = '🌱 Juntos por um futuro mais sustentável! 🌍';
+            mensagem.style.position = 'fixed';
+            mensagem.style.bottom = '20px';
+            mensagem.style.left = '50%';
+            mensagem.style.transform = 'translateX(-50%)';
+            mensagem.style.backgroundColor = 'var(--verde-principal)';
+            mensagem.style.color = 'white';
+            mensagem.style.padding = '1rem 2rem';
+            mensagem.style.borderRadius = '50px';
+            mensagem.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+            mensagem.style.zIndex = '9999';
+            mensagem.style.fontWeight = 'bold';
+            mensagem.style.animation = 'slideUp 0.3s ease';
+            
+            // Adiciona a mensagem ao corpo da página
+            document.body.appendChild(mensagem);
+            
+            // Remove a mensagem após 3 segundos
+            setTimeout(function() {
+                mensagem.remove();
+            }, 3000);
+        });
+    }
+    
+    // ===== INTERATIVIDADE DOS CARDS =====
+    const cards = document.querySelectorAll('.card');
+    
+    cards.forEach(card => {
+        // Quando o mouse entra no card
+        card.addEventListener('mouseenter', function() {
+            this.style.backgroundColor = '#27ae60';  // Verde mais escuro
+        });
+        
+        // Quando o mouse sai do card
+        card.addEventListener('mouseleave', function() {
+            this.style.backgroundColor = '';  // Volta ao normal (CSS cuida disso)
+        });
+        
+        // Quando clica no card
+        card.addEventListener('click', function() {
+            // Pega o número do pilar (atributo data-pilar)
+            const pilar = this.getAttribute('data-pilar');
+            
+            // Mensagens diferentes para cada pilar
+            const mensagens = {
+                '1': '🌿 Gestão responsável: usar recursos naturais sem esgotá-los',
+                '2': '💡 Inovação: tecnologia a favor do meio ambiente',
+                '3': '🤝 Responsabilidade social: inclusão e justiça para todos',
+                '4': '🔄 Economia circular: reduzir, reutilizar e reciclar',
+                '5': '📚 Educação: aprender para ensinar e transformar'
+            };
+            
+            // Mostra um alerta com a mensagem correspondente
+            alert(mensagens[pilar] || 'Pilar da sustentabilidade');
+        });
     });
-}, {
-    threshold: 0.2 // 20% do elemento visível
-});
-
-// Aplica a todas as seções
-document.querySelectorAll('.secao').forEach(secao => {
-    secao.style.opacity = '0';
-    secao.style.transform = 'translateY(20px)';
-    secao.style.transition = 'all 0.6s ease-out';
-    observer.observe(secao);
+    
+    // ===== EFEITO DE SCROLL SUAVE =====
+    // Seleciona todos os links que começam com #
+    const linksInternos = document.querySelectorAll('a[href^="#"]');
+    
+    linksInternos.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();  // Evita o comportamento padrão
+            
+            const href = this.getAttribute('href');  // Pega o destino do link
+            const destino = document.querySelector(href);  // Encontra o elemento
+            
+            if (destino) {
+                // Faz a rolagem suave até o destino
+                destino.scrollIntoView({
+                    behavior: 'smooth',      // Rolagem suave
+                    block: 'start'           // Alinha no topo
+                });
+            }
+        });
+    });
+    
+    // ===== ANIMAÇÃO DE APARECER AO ROLAR (OPCIONAL) =====
+    // Cria um observador para ver quando os elementos entram na tela
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, {
+        threshold: 0.1  // Ativa quando 10% do elemento está visível
+    });
+    
+    // Aplica a observação para as seções de conteúdo
+    const conteudos = document.querySelectorAll('.conteudo');
+    conteudos.forEach(conteudo => {
+        conteudo.style.opacity = '0';
+        conteudo.style.transform = 'translateY(20px)';
+        conteudo.style.transition = 'all 0.6s ease';
+        observer.observe(conteudo);
+    });
+    
+    // Também observa os cards
+    cards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'all 0.6s ease';
+        observer.observe(card);
+    });
 });
